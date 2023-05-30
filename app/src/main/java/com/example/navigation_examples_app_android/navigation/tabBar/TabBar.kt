@@ -3,14 +3,15 @@ package com.example.navigation_examples_app_android.navigation.tabBar
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.navigation_examples_app_android.NavGraph
+import com.example.navigation_examples_app_android.NavGraphs
 import com.example.navigation_examples_app_android.R
-import com.example.navigation_examples_app_android.home.NavGraph
-import com.example.navigation_examples_app_android.home.NavGraphs
 import com.example.navigation_examples_app_android.ui.theme.NavigationexamplesappandroidTheme
 
 enum class TabBarItem(
@@ -19,6 +20,7 @@ enum class TabBarItem(
     @StringRes val label: Int
 ) {
     Home(NavGraphs.HomeNavGraph, Icons.Default.Home, R.string.home),
+    Settings(NavGraphs.SettingsNavGraph, Icons.Default.Settings, R.string.settings)
 }
 
 
@@ -34,7 +36,7 @@ fun TabBar(
             NavigationBarItem(
                 selected = true,
                 onClick = { onItemClicked(it) },
-                icon = {},
+                icon = { it.icon },
             )
         }
     }
