@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp' version '1.8.21-1.0.11'
 }
 
 android {
@@ -64,4 +65,10 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    //compose destinations
+    ext {
+        composeDestinationVersion = '1.8.42-beta'
+    }
+    implementation "io.github.raamcosta.compose-destinations:animations-core:$composeDestinationVersion"
+    ksp "io.github.raamcosta.compose-destinations:ksp:$composeDestinationVersion"
 }
