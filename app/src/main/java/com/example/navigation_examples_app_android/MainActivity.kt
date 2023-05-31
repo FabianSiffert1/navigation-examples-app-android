@@ -4,12 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,20 +36,14 @@ fun MainScreen() {
     val navController = engine.rememberNavController()
 
     NavigationexamplesappandroidTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        ) {
-            Scaffold(bottomBar = { TabBar(onItemClicked = { navController.navigate(it.navGraph.route) }) }) { innerPadding
-                ->
-                DestinationsNavHost(
-                    engine = engine,
-                    navController = navController,
-                    modifier = Modifier.padding(innerPadding),
-                    navGraph = NavGraphs.root
-                )
-            }
-
+        Scaffold(bottomBar = { TabBar(onItemClicked = { navController.navigate(it.navGraph.route) }) }) { innerPadding
+            ->
+            DestinationsNavHost(
+                engine = engine,
+                navController = navController,
+                modifier = Modifier.padding(innerPadding),
+                navGraph = NavGraphs.root
+            )
         }
     }
 }
