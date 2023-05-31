@@ -43,7 +43,7 @@ fun MainScreen() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            Scaffold(bottomBar = { TabBar(onItemClicked = {}) }) { innerPadding
+            Scaffold(bottomBar = { TabBar(onItemClicked = { navController.navigate(it.navGraph.route) }) }) { innerPadding
                 ->
                 DestinationsNavHost(
                     engine = engine,
@@ -55,7 +55,6 @@ fun MainScreen() {
 
         }
     }
-
 }
 
 
